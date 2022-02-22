@@ -26,3 +26,5 @@ node_modules
 src/privatekey.pem
 src/EX_x509cert.pem
 src/examples.txt
+
+.env
