@@ -18,6 +18,7 @@ import aesjs from "aes-js";
 import CryptoJS from "crypto-js";
 import forge from "node-forge";
 import format from "xml-formatter";
+import hljs from "highlight.js";
 
 // const usesxs = makesxs((theme) => ({
 //   root: {
@@ -264,7 +265,7 @@ export default function App() {
               <Grid item xs={12} sx={{ flex: "10 1 auto" }}>
                 <Typography component="h5" variant="h5" align="left">
                   SAML Request{" "}
-                  <Typography variant="body1" sx={{ display: "inline-flex" }}>
+                  <Typography variant="caption" sx={{ display: "inline-flex" }}>
                     (in xml format)
                   </Typography>
                 </Typography>
@@ -280,6 +281,7 @@ export default function App() {
                   value={saml}
                   autoFocus
                   multiline
+                  rows={4}
                   maxRows={4}
                   sx={{
                     fontFamily: "Monospace",
@@ -309,8 +311,8 @@ export default function App() {
 
               <Grid item xs={12} sx={{ flex: "10 1 auto" }}>
                 <Typography component="h5" variant="h5" align="left">
-                  Private Key
-                  <Typography variant="body1" sx={{ display: "inline-flex" }}>
+                  Private Key{" "}
+                  <Typography variant="caption" sx={{ display: "inline-flex" }}>
                     ("-----BEGIN PRIVATE KEY-----" ... "-----END PRIVATE
                     KEY-----")
                   </Typography>
@@ -323,10 +325,11 @@ export default function App() {
                   required
                   fullWidth
                   id="private-key"
-                  label="private-key"
+                  label="-----BEGIN PRIVATE KEY-----...-----END PRIVATE KEY-----"
                   name="Private-Key"
                   value={privateKey}
                   multiline
+                  rows={4}
                   maxRows={4}
                   sx={{
                     fontFamily: "Monospace",
@@ -361,17 +364,11 @@ export default function App() {
                   minHeight="20vh"
                   fontSize="1rem"
                 >
-                  {decryptedSaml ? (
-                    <SyntaxHighlighter
-                      language="xml"
-                      sx={docco}
-                      customstyle={{ marginTop: "0" }}
-                    >
-                      {format(decryptedSaml)}
-                    </SyntaxHighlighter>
-                  ) : (
-                    ""
-                  )}
+                  {decryptedSaml
+                    ? hljs.highlight(format(decryptedSaml), {
+                        language: "xml",
+                      }).value
+                    : ""}
                 </Box>
               </Grid>
             </form>
