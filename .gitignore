@@ -22,3 +22,7 @@ setup.log
 # Merlin configuring file for Vim and Emacs
 .merlin
 node_modules
+
+src/privatekey.pem
+src/EX_x509cert.pem
+src/examples.txt
