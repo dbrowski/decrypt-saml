@@ -12,13 +12,14 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { makestyles } from "@mui/styles";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { githubGist } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { parseString } from "xml2js";
 import aesjs from "aes-js";
 import CryptoJS from "crypto-js";
 import forge from "node-forge";
 import format from "xml-formatter";
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/core";
+import xml from "highlight.js/lib/languages/xml";
 
 // const usesxs = makesxs((theme) => ({
 //   root: {
@@ -90,6 +91,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           paddingTop: "2vh",
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          fontSize: ".75rem",
         },
       },
     },
@@ -235,6 +243,8 @@ export default function App() {
     readAsXML(saml);
   };
 
+  hljs.registerLanguage("xml", xml);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -261,7 +271,11 @@ export default function App() {
             xs={12}
             sx={{ flex: "10 1 auto" }}
           >
-            <form noValidate onSubmit={handleSubmit}>
+            <form
+              noValidate
+              onSubmit={handleSubmit}
+              style={{ maxWidth: "100%" }}
+            >
               <Grid item xs={12} sx={{ flex: "10 1 auto" }}>
                 <Typography component="h5" variant="h5" align="left">
                   SAML Request{" "}
@@ -281,11 +295,9 @@ export default function App() {
                   value={saml}
                   autoFocus
                   multiline
-                  rows={4}
-                  maxRows={4}
+                  maxRows={6}
                   sx={{
                     fontFamily: "Monospace",
-                    fontSize: "1vmin",
                   }}
                   onChange={handleSAMLChange}
                 />
@@ -313,27 +325,24 @@ export default function App() {
                 <Typography component="h5" variant="h5" align="left">
                   Private Key{" "}
                   <Typography variant="caption" sx={{ display: "inline-flex" }}>
-                    ("-----BEGIN PRIVATE KEY-----" ... "-----END PRIVATE
-                    KEY-----")
+                    (-----BEGIN PRIVATE KEY----- ... -----END PRIVATE KEY-----)
                   </Typography>
                 </Typography>
 
                 {/* Private key input field */}
                 <TextField
                   variant="outlined"
-                  margin="none"
+                  margin="dense"
                   required
                   fullWidth
                   id="private-key"
-                  label="-----BEGIN PRIVATE KEY-----...-----END PRIVATE KEY-----"
+                  label="Private Key"
                   name="Private-Key"
                   value={privateKey}
                   multiline
-                  rows={4}
-                  maxRows={4}
+                  maxRows={6}
                   sx={{
                     fontFamily: "Monospace",
-                    fontSize: "1vmin",
                   }}
                   onChange={handlePrivateKeyChange}
                 />
@@ -350,11 +359,12 @@ export default function App() {
                 </Button>
               </Grid>
 
-              <Grid item xs={12} sx={{ flex: "10 0 auto" }}>
+              <Grid container item xs={12} sx={{ flex: "10 0 auto" }}>
                 <Typography component="h5" variant="h5" align="left">
                   Decrypted SAML
                 </Typography>
                 <Box
+                  display="flex"
                   border={1}
                   borderRadius={5}
                   borderColor="#576877"
@@ -362,13 +372,25 @@ export default function App() {
                   width="100%"
                   maxWidth="100%"
                   minHeight="20vh"
+                  maxHeight="25vh"
                   fontSize="1rem"
                 >
-                  {decryptedSaml
-                    ? hljs.highlight(format(decryptedSaml), {
-                        language: "xml",
-                      }).value
-                    : ""}
+                  {decryptedSaml ? (
+                    <SyntaxHighlighter
+                      language="xml"
+                      style={githubGist}
+                      customStyle={{
+                        margin: 0,
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        overflowY: "auto !important",
+                      }}
+                    >
+                      {format(decryptedSaml)}
+                    </SyntaxHighlighter>
+                  ) : (
+                    ""
+                  )}
                 </Box>
               </Grid>
             </form>
