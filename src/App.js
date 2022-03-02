@@ -171,12 +171,6 @@ export default function App() {
       // set the decrypted value text output
       setDecryptedSaml(decrypted);
 
-      console.log("encryptionAlgorithm");
-      console.log(encryptionAlgorithm);
-      console.log("keyEncryptionAlgorithm");
-      console.log(keyEncryptionAlgorithm);
-
-      // console.log(util.inspect(result, false, null));
       return result;
     });
   };
@@ -225,7 +219,8 @@ export default function App() {
                     (in xml format)
                   </Typography>
                 </Typography>
-                {/* JWT input field */}
+
+                {/* SAML input field */}
                 <TextField
                   variant="outlined"
                   margin="none"
