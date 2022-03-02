@@ -28,3 +28,4 @@ src/EX_x509cert.pem
 src/examples.txt
 
 .env
+src/privatekey.crt
