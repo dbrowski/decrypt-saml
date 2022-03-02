@@ -9,72 +9,14 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { makestyles } from "@mui/styles";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { parseString } from "xml2js";
-import aesjs from "aes-js";
-import CryptoJS from "crypto-js";
 import forge from "node-forge";
 import format from "xml-formatter";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
-
-// const usesxs = makesxs((theme) => ({
-//   root: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "stretch",
-//     justifyContent: "flex-start",
-//     color: "#2E4355",
-//   },
-//   innerMain: {
-//     display: "flex",
-//     margin: "0",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     justifyContent: "flex-start",
-//     color: "#2E4355",
-//   },
-//   image: {
-//     backgroundImage:
-//       "url(https://pingidentity.com/content/dam/ping-6-2-assets/open-graph-images/2019/P14C-Build-OG.png)",
-//     backgroundRepeat: "no-repeat",
-//     backgroundColor: "#576877",
-//     backgroundSize: "cover",
-//     backgroundPosition: "center",
-//     maxHeight: "20%",
-//   },
-//   avatar: {
-//     backgroundColor: "#2E4355",
-//   },
-//   form: {
-//     width: "100%", // Fix IE 11 issue.
-//     marginTop: "0",
-//   },
-//   submit: {
-//     backgroundColor: "#2E4355",
-//   },
-//   typography: {
-//     color: "#2E4355",
-//     fontSize: "1%",
-//   },
-//   errorMessage: {
-//     color: "red",
-//   },
-//   infoPaperContainer: {
-//     maxHeight: "100%",
-//     overflow: "auto",
-//   },
-//   info: {
-//     height: "100%",
-//     maxHeight: "100%",
-//     color: "#2E4355",
-//     margin: "0",
-//     padding: "0",
-//   },
-// }));
 
 const theme = createTheme({
   palette: {
