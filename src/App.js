@@ -239,7 +239,7 @@ export default function App() {
                   onChange={handleSAMLChange}
                 />
 
-                {/* Error Message for JWT String Decode */}
+                {/* Error Message for SAML Decrypt */}
                 <Popover
                   id={id}
                   open={open}
