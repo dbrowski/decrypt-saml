@@ -29,3 +29,5 @@ src/examples.txt
 
 .env
 src/privatekey.crt
+src/privatekey.csr
+src/decodedencryptedsaml.xml
