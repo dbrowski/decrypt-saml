@@ -23,11 +23,4 @@ setup.log
 .merlin
 node_modules
 
-src/privatekey.pem
-src/EX_x509cert.pem
-src/examples.txt
-
 .env
-src/privatekey.crt
-src/privatekey.csr
-src/decodedencryptedsaml.xml

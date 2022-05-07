@@ -32,7 +32,7 @@ const theme = createTheme({
     MuiGrid: {
       styleOverrides: {
         root: {
-          paddingTop: "2vh",
+          paddingTop: "1vh",
         },
       },
     },
