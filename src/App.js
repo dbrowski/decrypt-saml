@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -8,7 +9,9 @@ import Grid from "@mui/material/Grid";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
+import Input from "@mui/material/Input";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -57,6 +60,7 @@ export default function App() {
   // State variables and setters.
   const [saml, setSaml] = useState("");
   const [privateKey, setPrivateKey] = useState("");
+  const [privateKeyFile, setPrivateKeyFile] = useState("");
   const [decryptedSaml, setDecryptedSaml] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [samlError, setSamlError] = React.useState(null);
@@ -116,8 +120,18 @@ export default function App() {
       const keyEncryptionMethod = encryptedKey[0]["xenc:EncryptionMethod"];
       const keyEncryptionAlgorithm = keyEncryptionMethod[0]["$"]["Algorithm"];
 
+      console.log("creating forge private key...");
+      console.log("privateKey");
+      console.log(privateKey);
+      console.log();
+
       // Create forge private key from input
       const forgePrivateKey = forge.pki.privateKeyFromPem(privateKey);
+
+      console.log("...created forge private key");
+      console.log("forgePrivateKey");
+      console.log(forgePrivateKey);
+      console.log();
 
       // Use private key to decrypt the encrypted key in the saml request
       const decryptedKey = forgePrivateKey.decrypt(
@@ -179,6 +193,39 @@ export default function App() {
     readAsXML(saml);
   };
 
+  const onChange = async (event) => {
+    const f = event.target.files[0];
+    setPrivateKeyFile(f);
+    await uploadFile(f);
+    console.log("f.name");
+    console.log(f.name);
+    console.log("f.type");
+    console.log(f.type);
+    console.log("f.size");
+    console.log(f.size);
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  // On file upload (click the upload button)
+  const uploadFile = (pkf) => {
+    console.log("pkf");
+    console.log(pkf);
+    console.log();
+    const pkfFileReader = new FileReader();
+
+    console.log("pkf");
+    console.log(pkf);
+    pkfFileReader.readAsText(pkf);
+    pkfFileReader.onload = (e) => {
+      setPrivateKey(pkfFileReader.result);
+    };
+
+    console.log("pkfFileReader.result");
+    console.log(pkfFileReader.result);
+    setPrivateKey(pkfFileReader.result);
+  };
+
   hljs.registerLanguage("xml", xml);
 
   return (
@@ -214,9 +261,9 @@ export default function App() {
             >
               <Grid item xs={12} sx={{ flex: "10 1 auto" }}>
                 <Typography component="h5" variant="h5" align="left">
-                  SAML Request{" "}
+                  SAML Assertion/Request/Response{" "}
                   <Typography variant="caption" sx={{ display: "inline-flex" }}>
-                    (in xml format)
+                    (in xml format, i.e., it's been decoded)
                   </Typography>
                 </Typography>
 
@@ -258,16 +305,22 @@ export default function App() {
                 </Popover>
               </Grid>
 
-              <Grid item xs={12} sx={{ flex: "10 1 auto" }}>
-                <Typography component="h5" variant="h5" align="left">
-                  Private Key{" "}
-                  <Typography variant="caption" sx={{ display: "inline-flex" }}>
-                    (-----BEGIN PRIVATE KEY----- ... -----END PRIVATE KEY-----)
+              <Grid container item xs={12} sx={{ flex: "10 1 auto" }}>
+                <Grid item xs={12}>
+                  <Typography component="h5" variant="h5" align="left">
+                    Private Key{" "}
+                    <Typography
+                      variant="caption"
+                      sx={{ display: "inline-flex" }}
+                    >
+                      (.pem, "-----BEGIN PRIVATE KEY----- ... -----END PRIVATE
+                      KEY-----")
+                    </Typography>
                   </Typography>
-                </Typography>
-
-                {/* Private key input field */}
-                <TextField
+                </Grid>
+                <Grid item xs={12}>
+                  {/* Private key input field */}
+                  {/* <TextField
                   variant="outlined"
                   margin="dense"
                   required
@@ -282,7 +335,17 @@ export default function App() {
                     fontFamily: "Monospace",
                   }}
                   onChange={handlePrivateKeyChange}
-                />
+                /> */}
+
+                  <label htmlFor="contained-button-file">
+                    <Input
+                      accept=".pem"
+                      id="contained-button-file"
+                      type="file"
+                      onChange={onChange}
+                    />
+                  </label>
+                </Grid>
               </Grid>
 
               <Grid item xs={12} sx={{ flex: "1 0 auto" }}>
