@@ -1,0 +1,149 @@
+<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="id-dce71c52-0dfd-4e43-90d8-915dffa530e2" IssueInstant="2022-05-08T00:24:51.916Z" Version="2.0">
+
+    <saml:Issuer>
+
+        https://auth.pingone.com/333d66b5-d2f0-48d0-8ec0-cf4cafd35d25
+
+    </saml:Issuer>
+
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+
+        <ds:SignedInfo>
+
+            <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:CanonicalizationMethod>
+
+            <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></ds:SignatureMethod>
+
+            <ds:Reference URI="#id-dce71c52-0dfd-4e43-90d8-915dffa530e2">
+
+                <ds:Transforms>
+
+                    <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+
+                    <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:Transform>
+
+                </ds:Transforms>
+
+                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod>
+
+                <ds:DigestValue> bcrb2taA2mgbwCIMSTFeJ/D6VOuVg29NrsuDMDTP2D8=
+
+                </ds:DigestValue>
+
+            </ds:Reference>
+
+        </ds:SignedInfo>
+
+        <ds:SignatureValue> UQH6B3m85DnIPFaKmOqSlhL6pvJ4GwxfsuFy7UK9QgZu7wCH3s8gNlTsRy8qNnGvOq7Og5g9HzcdTCYyhVZwYdRO5VJFlG92NM6+VYfDwiyy8vHUfzevgbv7poALMeAiNNINHlBxt7VQ23wktgCa+9qSFq4wVXo431mIRDHxsBMCU+FKpZ/ses8VChdtpyzXuv3/mrXZxU7eE/4EYAY+utJtw9+eQ0kMjRG4lsFvC+inQjtiOQXqSyxd1VoHIWWLr/8KeOmVAIAjhxxHUc03PiWnFKTbFdt1S8llYkmwCvcd2hNfHh/inBUMh8Pi4xJhDvCJCJI0n9ZS8cO/HZVFjQ==
+
+        </ds:SignatureValue>
+
+        <ds:KeyInfo>
+
+            <ds:X509Data>
+
+                <ds:X509Certificate> MIIDMDCCAhigAwIBAgIGAXe7amFsMA0GCSqGSIb3DQEBCwUAMFkxEDAOBgNVBAMMB1NpZ25pbmcx&#xD; CTAHBgNVBAsMADEWMBQGA1UECgwNcGluZ2RpcmVjdG9yeTEJMAcGA1UEBwwAMQkwBwYDVQQIDAAx&#xD; DDAKBgNVBAYTA3VzYTAeFw0yMTAyMTkxNzUwNDdaFw0yMjAyMTkxNzUwNDdaMFkxEDAOBgNVBAMM&#xD; B1NpZ25pbmcxCTAHBgNVBAsMADEWMBQGA1UECgwNcGluZ2RpcmVjdG9yeTEJMAcGA1UEBwwAMQkw&#xD; BwYDVQQIDAAxDDAKBgNVBAYTA3VzYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKO9&#xD; M7YBM2mtKHrzsvlglDJXqI6eDAx6M9JdZXmjfA1/MmOY15QsXcPpuR7kfrC0mvRGoRNWIiGoERDJ&#xD; T8ZU/jHIJY7F5YhH/IAacnNUXQpIuH8O1FQkeqGpQrpfmRsjFBcn1a6rpdHtAKzTHUWBoHj7lBzT&#xD; XN37REkYo2ERJzOvYPHsk/9rRkQCbrWhRCtrV73cHGAk+Xn1vEMaVKmuX4e8BqHY6d3FoJNAunAQ&#xD; 7ytgq9QMDyTTpkUfROi5IHAMtsvG/5ekdHIxU3uWNeyrI7QHCJkgDXri0KNlCQD4mfkYrhZEogaT&#xD; rW95pochQsRx3nv/CP69tGbBd83mcFaqUf8CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEANPGiXZMX&#xD; JyoM6yWPZ/RnbRtNa9UjYoWM/t6YFjrJJ2hMD/qlid2eDlF9FGiOH5bVqFmdodWiCZX5kH4Icxds&#xD; 1yDubbXIUFAD+0XrFG7Xx5V1OlLhEPeKiLJVyvQy52PtssVA1OdjvBO0o8khdKPXELgNYvJj1mjP&#xD; 9Nx0mCV4+r3rOi3K80EIbEpSb1o+qzgb1r6H9rm88IqKGlkcqB8MMsMgEfar0A99TGZisj9ExkTn&#xD; HAWHdV/7yrUzgxYeO3/gFgkZxxl2e9+b4LJpBPadmKjF6ef4MqGa7u0AMCVTj+EOWFEdTHdwKPl8&#xD; VJ2Ux9Nnre8YCeSjPOu0VxZcbcSUOg==
+
+                </ds:X509Certificate>
+
+            </ds:X509Data>
+
+            <ds:KeyValue>
+
+                <ds:RSAKeyValue>
+
+                    <ds:Modulus> o70ztgEzaa0oevOy+WCUMleojp4MDHoz0l1leaN8DX8yY5jXlCxdw+m5HuR+sLSa9EahE1YiIagR&#xD; EMlPxlT+McgljsXliEf8gBpyc1RdCki4fw7UVCR6oalCul+ZGyMUFyfVrqul0e0ArNMdRYGgePuU&#xD; HNNc3ftESRijYREnM69g8eyT/2tGRAJutaFEK2tXvdwcYCT5efW8QxpUqa5fh7wGodjp3cWgk0C6&#xD; cBDvK2Cr1AwPJNOmRR9E6LkgcAy2y8b/l6R0cjFTe5Y17KsjtAcImSANeuLQo2UJAPiZ+RiuFkSi&#xD; BpOtb3mmhyFCxHHee/8I/r20ZsF3zeZwVqpR/w==
+
+                    </ds:Modulus>
+
+                    <ds:Exponent>
+
+                        AQAB
+
+                    </ds:Exponent>
+
+                </ds:RSAKeyValue>
+
+            </ds:KeyValue>
+
+        </ds:KeyInfo>
+
+    </ds:Signature>
+
+    <saml:Subject>
+
+        <saml:NameID>
+
+            a17533d8-a34c-4259-b20a-59592dc54e9d
+
+        </saml:NameID>
+
+        <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+
+            <saml:SubjectConfirmationData NotOnOrAfter="2022-05-08T01:24:51.916Z" Recipient="https://httpbin.org/anything"></saml:SubjectConfirmationData>
+
+        </saml:SubjectConfirmation>
+
+    </saml:Subject>
+
+    <saml:Conditions NotBefore="2022-05-08T00:23:51.916Z" NotOnOrAfter="2022-05-08T01:24:51.916Z">
+
+        <saml:AudienceRestriction>
+
+            <saml:Audience>
+
+                sssaml
+
+            </saml:Audience>
+
+        </saml:AudienceRestriction>
+
+    </saml:Conditions>
+
+    <saml:AuthnStatement AuthnInstant="2022-05-08T00:24:51.916Z" SessionIndex="ca54db65-60ce-4361-8c4e-cf88b6324c58" SessionNotOnOrAfter="2022-05-08T01:24:51.916Z">
+
+        <saml:AuthnContext>
+
+            <saml:AuthnContextClassRef>
+
+                urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
+
+            </saml:AuthnContextClassRef>
+
+            <saml:AuthenticatingAuthority>
+
+                https://auth.pingone.com/333d66b5-d2f0-48d0-8ec0-cf4cafd35d25
+
+            </saml:AuthenticatingAuthority>
+
+        </saml:AuthnContext>
+
+    </saml:AuthnStatement>
+
+    <saml:AttributeStatement>
+
+        <saml:Attribute Name="saml_subject" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+
+            <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
+
+                a17533d8-a34c-4259-b20a-59592dc54e9d
+
+            </saml:AttributeValue>
+
+        </saml:Attribute>
+
+        <saml:Attribute Name="emAddr" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+
+            <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
+
+                anthonydombrowski+ap14c@pingidentity.com
+
+            </saml:AttributeValue>
+
+        </saml:Attribute>
+
+    </saml:AttributeStatement>
+
+</saml:Assertion>

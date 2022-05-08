@@ -60,17 +60,18 @@ After creating the connection, go to the config and use
 
 > **decryptSAML.crt**
 
- to enable encryption.
+to enable encryption.
 
 </br>
 
 ## Generate an encrypted SAML response
 
-#### *Here's how I did it...*
+#### _Here's how I did it..._
 
-1. Open "init SSO url" in a browser (optionally, use an incognito window if you might be signed in already)
+1. Open "init SSO url" in a browser (optionally, use an incognito window if you
+   might be signed in already)
 2. Sign in with a test user
-3. Copy the SAML response
+3. Copy and save the SAML response
    - I pointed my app connection at httpbin.org so the SAML response just
      appears in the browser after authenticating
    - The example used is this file:
@@ -90,5 +91,11 @@ After creating the connection, go to the config and use
 
 ## You're ready to test the tool!
 
-Now, you have an encrypted but decoded SAML Request/Response and a private key.
-That's all you need!
+Now, you have an encrypted but decoded SAML Request/Response/Assertion and a
+private key. That's all you need!
+
+## Results
+
+Here's the output of the tool with our example encrypted SAML assertion:
+
+> **SAMLResponse.xml**
