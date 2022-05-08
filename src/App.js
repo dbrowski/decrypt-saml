@@ -193,16 +193,10 @@ export default function App() {
     readAsXML(saml);
   };
 
-  const onChange = async (event) => {
+  const onChange = (event) => {
     const f = event.target.files[0];
     setPrivateKeyFile(f);
-    await uploadFile(f);
-    console.log("f.name");
-    console.log(f.name);
-    console.log("f.type");
-    console.log(f.type);
-    console.log("f.size");
-    console.log(f.size);
+    uploadFile(f);
     event.stopPropagation();
     event.preventDefault();
   };
@@ -263,7 +257,7 @@ export default function App() {
                 <Typography component="h5" variant="h5" align="left">
                   SAML Assertion/Request/Response{" "}
                   <Typography variant="caption" sx={{ display: "inline-flex" }}>
-                    (in xml format, i.e., it's been decoded)
+                    (in xml format;s i.e., it's been decoded)
                   </Typography>
                 </Typography>
 
@@ -308,7 +302,7 @@ export default function App() {
               <Grid container item xs={12} sx={{ flex: "10 1 auto" }}>
                 <Grid item xs={12}>
                   <Typography component="h5" variant="h5" align="left">
-                    Private Key{" "}
+                    Encryption Key{" "}
                     <Typography
                       variant="caption"
                       sx={{ display: "inline-flex" }}
