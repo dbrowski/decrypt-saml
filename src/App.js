@@ -120,18 +120,8 @@ export default function App() {
       const keyEncryptionMethod = encryptedKey[0]["xenc:EncryptionMethod"];
       const keyEncryptionAlgorithm = keyEncryptionMethod[0]["$"]["Algorithm"];
 
-      console.log("creating forge private key...");
-      console.log("privateKey");
-      console.log(privateKey);
-      console.log();
-
       // Create forge private key from input
       const forgePrivateKey = forge.pki.privateKeyFromPem(privateKey);
-
-      console.log("...created forge private key");
-      console.log("forgePrivateKey");
-      console.log(forgePrivateKey);
-      console.log();
 
       // Use private key to decrypt the encrypted key in the saml request
       const decryptedKey = forgePrivateKey.decrypt(
@@ -203,20 +193,13 @@ export default function App() {
 
   // On file upload (click the upload button)
   const uploadFile = (pkf) => {
-    console.log("pkf");
-    console.log(pkf);
-    console.log();
     const pkfFileReader = new FileReader();
 
-    console.log("pkf");
-    console.log(pkf);
     pkfFileReader.readAsText(pkf);
     pkfFileReader.onload = (e) => {
       setPrivateKey(pkfFileReader.result);
     };
 
-    console.log("pkfFileReader.result");
-    console.log(pkfFileReader.result);
     setPrivateKey(pkfFileReader.result);
   };
 
